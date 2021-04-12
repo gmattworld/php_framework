@@ -1,0 +1,16 @@
+{
+    "name": "gmattworld/mvc_framework",
+    "description": "A test from Patricia",
+    "authors": [
+        {
+            "name": "Oluwagbenga Matthew Afolabi",
+            "email": "gmattworld@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
