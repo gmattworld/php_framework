@@ -39,8 +39,8 @@ class Router
     {
         $path = $this->request->getPath();
         $method = $this->request->method();
+        $this->isApi = $this->request->isApi($path);
         $callback = $this->routes[$method][$path] ?? false;
-        $this->isApi = strpos($path, '/api') !== false;
         if ($callback === false) {
             $this->response->setStatusCode(404);
             if ($this->isApi) {

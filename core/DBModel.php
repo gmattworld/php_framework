@@ -18,7 +18,7 @@
             return Application::$app->db->prepare($sql);
         }
 
-        public static function findOne($where)
+        public static function find($where)
         {
             $tableName = static::tableName();
             $attributes = array_keys($where);
@@ -64,16 +64,6 @@
 //            $statement = self::prepare("SELECT " . implode(",", $attributes) . " FROM $tableName");
             $statement = self::prepare("SELECT * FROM $tableName");
             $statement->execute();
-            return $statement->setFetchMode(\PDO::FETCH_ASSOC);
-        }
-
-        public function getByKey(string $key, string $value)
-        {
-            $tableName = $this->tableName();
-//            $attributes = $this->attributes();
-//            $statement = self::prepare("SELECT " . implode(",", $attributes) . " FROM $tableName");
-            $statement = self::prepare("SELECT * FROM $tableName WHERE `$key` = $value");
-            $statement->execute();
-            return $statement->setFetchMode(\PDO::FETCH_ASSOC);
+            return $statement->fetchObject(static::class);
         }
     }

@@ -1,7 +1,6 @@
 <?php
 
 use app\Controllers\AuthController;
-use app\Controllers\PublicController;
 use app\core\Application;
 
 Application::$app->router->post('/api/register', [AuthController::class, 'register']);
